@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiduigui.api.server.mapper.WsTrialUserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.aiduigui.api.server.entity.WsTrialUserInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="team" jdbcType="VARCHAR" property="team" />
+    <result column="contact_name" jdbcType="VARCHAR" property="contactName" />
+    <result column="jobs" jdbcType="VARCHAR" property="jobs" />
+    <result column="contact_email" jdbcType="VARCHAR" property="contactEmail" />
+    <result column="contact_phone" jdbcType="VARCHAR" property="contactPhone" />
+    <result column="team_scale" jdbcType="VARCHAR" property="teamScale" />
+    <result column="reference" jdbcType="VARCHAR" property="reference" />
+    <result column="demand_content" jdbcType="VARCHAR" property="demandContent" />
+    <result column="aibi_balance" jdbcType="DECIMAL" property="aibiBalance" />
+    <result column="aibi_total" jdbcType="DECIMAL" property="aibiTotal" />
+    <result column="pay_charge" jdbcType="DECIMAL" property="payCharge" />
+    <result column="pay_balance" jdbcType="DECIMAL" property="payBalance" />
+    <result column="member_start_time" jdbcType="TIMESTAMP" property="memberStartTime" />
+    <result column="member_end_time" jdbcType="TIMESTAMP" property="memberEndTime" />
+    <result column="is_valid" jdbcType="INTEGER" property="isValid" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, team, contact_name, jobs, contact_email, contact_phone, team_scale, reference, 
+    demand_content, aibi_balance, aibi_total, pay_charge, pay_balance, member_start_time, 
+    member_end_time, is_valid, created_time, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ws_trial_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ws_trial_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aiduigui.api.server.entity.WsTrialUserInfo">
+    insert into ws_trial_user_info (id, team, contact_name, 
+      jobs, contact_email, contact_phone, 
+      team_scale, reference, demand_content, 
+      aibi_balance, aibi_total, pay_charge, 
+      pay_balance, member_start_time, member_end_time, 
+      is_valid, created_time, updated_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{team,jdbcType=VARCHAR}, #{contactName,jdbcType=VARCHAR}, 
+      #{jobs,jdbcType=VARCHAR}, #{contactEmail,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR}, 
+      #{teamScale,jdbcType=VARCHAR}, #{reference,jdbcType=VARCHAR}, #{demandContent,jdbcType=VARCHAR}, 
+      #{aibiBalance,jdbcType=DECIMAL}, #{aibiTotal,jdbcType=DECIMAL}, #{payCharge,jdbcType=DECIMAL}, 
+      #{payBalance,jdbcType=DECIMAL}, #{memberStartTime,jdbcType=TIMESTAMP}, #{memberEndTime,jdbcType=TIMESTAMP}, 
+      #{isValid,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aiduigui.api.server.entity.WsTrialUserInfo">
+    insert into ws_trial_user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="team != null">
+        team,
+      </if>
+      <if test="contactName != null">
+        contact_name,
+      </if>
+      <if test="jobs != null">
+        jobs,
+      </if>
+      <if test="contactEmail != null">
+        contact_email,
+      </if>
+      <if test="contactPhone != null">
+        contact_phone,
+      </if>
+      <if test="teamScale != null">
+        team_scale,
+      </if>
+      <if test="reference != null">
+        reference,
+      </if>
+      <if test="demandContent != null">
+        demand_content,
+      </if>
+      <if test="aibiBalance != null">
+        aibi_balance,
+      </if>
+      <if test="aibiTotal != null">
+        aibi_total,
+      </if>
+      <if test="payCharge != null">
+        pay_charge,
+      </if>
+      <if test="payBalance != null">
+        pay_balance,
+      </if>
+      <if test="memberStartTime != null">
+        member_start_time,
+      </if>
+      <if test="memberEndTime != null">
+        member_end_time,
+      </if>
+      <if test="isValid != null">
+        is_valid,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="team != null">
+        #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="contactName != null">
+        #{contactName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobs != null">
+        #{jobs,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null">
+        #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="teamScale != null">
+        #{teamScale,jdbcType=VARCHAR},
+      </if>
+      <if test="reference != null">
+        #{reference,jdbcType=VARCHAR},
+      </if>
+      <if test="demandContent != null">
+        #{demandContent,jdbcType=VARCHAR},
+      </if>
+      <if test="aibiBalance != null">
+        #{aibiBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="aibiTotal != null">
+        #{aibiTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="payCharge != null">
+        #{payCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="payBalance != null">
+        #{payBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="memberStartTime != null">
+        #{memberStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberEndTime != null">
+        #{memberEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aiduigui.api.server.entity.WsTrialUserInfo">
+    update ws_trial_user_info
+    <set>
+      <if test="team != null">
+        team = #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="contactName != null">
+        contact_name = #{contactName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobs != null">
+        jobs = #{jobs,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null">
+        contact_email = #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        contact_phone = #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="teamScale != null">
+        team_scale = #{teamScale,jdbcType=VARCHAR},
+      </if>
+      <if test="reference != null">
+        reference = #{reference,jdbcType=VARCHAR},
+      </if>
+      <if test="demandContent != null">
+        demand_content = #{demandContent,jdbcType=VARCHAR},
+      </if>
+      <if test="aibiBalance != null">
+        aibi_balance = #{aibiBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="aibiTotal != null">
+        aibi_total = #{aibiTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="payCharge != null">
+        pay_charge = #{payCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="payBalance != null">
+        pay_balance = #{payBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="memberStartTime != null">
+        member_start_time = #{memberStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memberEndTime != null">
+        member_end_time = #{memberEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isValid != null">
+        is_valid = #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aiduigui.api.server.entity.WsTrialUserInfo">
+    update ws_trial_user_info
+    set team = #{team,jdbcType=VARCHAR},
+      contact_name = #{contactName,jdbcType=VARCHAR},
+      jobs = #{jobs,jdbcType=VARCHAR},
+      contact_email = #{contactEmail,jdbcType=VARCHAR},
+      contact_phone = #{contactPhone,jdbcType=VARCHAR},
+      team_scale = #{teamScale,jdbcType=VARCHAR},
+      reference = #{reference,jdbcType=VARCHAR},
+      demand_content = #{demandContent,jdbcType=VARCHAR},
+      aibi_balance = #{aibiBalance,jdbcType=DECIMAL},
+      aibi_total = #{aibiTotal,jdbcType=DECIMAL},
+      pay_charge = #{payCharge,jdbcType=DECIMAL},
+      pay_balance = #{payBalance,jdbcType=DECIMAL},
+      member_start_time = #{memberStartTime,jdbcType=TIMESTAMP},
+      member_end_time = #{memberEndTime,jdbcType=TIMESTAMP},
+      is_valid = #{isValid,jdbcType=INTEGER},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
